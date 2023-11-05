@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.vulcanth.cosmetics'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+
+    maven { url 'https://jitpack.io' }
+
+    //Repositório Spigot
+    maven {
+        url = 'https://repo.codemc.org/repository/nms/'
+    }
+
+    maven {
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+    maven {
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+
+    maven {
+        url = 'https://repo.dmulloy2.net/repository/public/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.2'
+    compileOnly('com.github.Vulcanth:VulcanthCommons:0.7.9.1')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks {
+    compileJava {
+        options.encoding("UTF-8")
+    }
+
+    jar {
+        setArchiveFileName("VulcanthCosmetics.jar")
+    }
+}
