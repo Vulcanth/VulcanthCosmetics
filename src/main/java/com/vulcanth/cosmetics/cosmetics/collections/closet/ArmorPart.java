@@ -2,6 +2,7 @@ package com.vulcanth.cosmetics.cosmetics.collections.closet;
 
 import com.vulcanth.commons.utils.BukkitUtils;
 import com.vulcanth.cosmetics.Main;
+import com.vulcanth.cosmetics.utils.RGBIterator;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -30,43 +31,33 @@ public class ArmorPart {
 
     public void startArmorUpdater() {
         new BukkitRunnable() {
-            private int r = 0;
-            private int g = 0;
-            private int b = 0;
+
+            private final RGBIterator rgbFuntion = new RGBIterator();
 
             @Override
             public void run() {
-                if (r == 255 || g == 255 || b == 255) {
-                    r = 0;
-                    g = 0;
-                    b = 0;
-                }
-
                 switch (type) {
                     case HELMET: {
-                        item = BukkitUtils.getItemStackFromString("298 : 1 : nome>&aChapéu de Couro : paint>" + r + ":" + g + ":" + b);
+                        item = BukkitUtils.getItemStackFromString("298 : 1 : nome>&aChapéu de Couro : paint>" + rgbFuntion.next());
                         break;
                     }
 
                     case CHESTPLATE: {
-                        item = BukkitUtils.getItemStackFromString("299 : 1 : nome>&aPeitoral de Couro : paint>" + r + ":" + g + ":" + b);
+                        item = BukkitUtils.getItemStackFromString("299 : 1 : nome>&aPeitoral de Couro : paint>" + rgbFuntion.next());
                         break;
                     }
 
                     case LEGGINS: {
-                        item = BukkitUtils.getItemStackFromString("300 : 1 : nome>&aCalça de Couro : paint>" + r + ":" + g + ":" + b);
+                        item = BukkitUtils.getItemStackFromString("300 : 1 : nome>&aCalça de Couro : paint>" + rgbFuntion.next());
                         break;
                     }
 
                     case BOOTS: {
-                        item = BukkitUtils.getItemStackFromString("299 : 1 : nome>&aBota de Couro : paint>" + r + ":" + g + ":" + b);
+                        item = BukkitUtils.getItemStackFromString("299 : 1 : nome>&aBota de Couro : paint>" + rgbFuntion.next());
                         break;
                     }
                 }
 
-                r++;
-                g++;
-                b++;
                 if (copyMaterial) {
                     ItemStack newIcon = item;
                     ItemMeta meta = newIcon.getItemMeta();
@@ -99,23 +90,12 @@ public class ArmorPart {
                 inventory.setHelmet(this.item);
                 if (isRgb) {
                     task = new BukkitRunnable() {
-                        private int r = 0;
-                        private int g = 0;
-                        private int b = 0;
+
+                        private final RGBIterator rgbFuntion = new RGBIterator();
 
                         @Override
                         public void run() {
-                            if (r == 255 || g == 255 || b == 255) {
-                                r = 0;
-                                g = 0;
-                                b = 0;
-                            }
-
-                            ItemStack itemNow = BukkitUtils.getItemStackFromString("298 : 1 : nome>&aChapéu de Couro : paint>" + r + ":" + g + ":" + b);
-                            r++;
-                            g++;
-                            b++;
-
+                            ItemStack itemNow = BukkitUtils.getItemStackFromString("298 : 1 : nome>&aChapéu de Couro : paint>" + rgbFuntion.next());
                             player.getInventory().setHelmet(itemNow);
                         }
                     }.runTaskTimerAsynchronously(Main.getInstance(), 0L, 1L);
@@ -127,23 +107,12 @@ public class ArmorPart {
                 inventory.setChestplate(this.item);
                 if (isRgb) {
                     task = new BukkitRunnable() {
-                        private int r = 0;
-                        private int g = 0;
-                        private int b = 0;
+
+                        private final RGBIterator rgbFuntion = new RGBIterator();
 
                         @Override
                         public void run() {
-                            if (r == 255 || g == 255 || b == 255) {
-                                r = 0;
-                                g = 0;
-                                b = 0;
-                            }
-
-                            ItemStack itemNow = BukkitUtils.getItemStackFromString("299 : 1 : nome>&aPeitoral de Couro : paint>" + r + ":" + g + ":" + b);
-                            r++;
-                            g++;
-                            b++;
-
+                            ItemStack itemNow = BukkitUtils.getItemStackFromString("299 : 1 : nome>&aPeitoral de Couro : paint>" + rgbFuntion.next());
                             player.getInventory().setChestplate(itemNow);
                         }
                     }.runTaskTimerAsynchronously(Main.getInstance(), 0L, 1L);
@@ -155,23 +124,12 @@ public class ArmorPart {
                 inventory.setLeggings(this.item);
                 if (isRgb) {
                     task = new BukkitRunnable() {
-                        private int r = 0;
-                        private int g = 0;
-                        private int b = 0;
+
+                        private final RGBIterator rgbFuntion = new RGBIterator();
 
                         @Override
                         public void run() {
-                            if (r == 255 || g == 255 || b == 255) {
-                                r = 0;
-                                g = 0;
-                                b = 0;
-                            }
-
-                            ItemStack itemNow = BukkitUtils.getItemStackFromString("300 : 1 : nome>&aCalça de Couro : paint>" + r + ":" + g + ":" + b);
-                            r++;
-                            g++;
-                            b++;
-
+                            ItemStack itemNow = BukkitUtils.getItemStackFromString("300 : 1 : nome>&aCalça de Couro : paint>" + rgbFuntion.next());
                             player.getInventory().setLeggings(itemNow);
                         }
                     }.runTaskTimerAsynchronously(Main.getInstance(), 0L, 1L);
@@ -183,23 +141,12 @@ public class ArmorPart {
                 inventory.setBoots(this.item);
                 if (isRgb) {
                     task = new BukkitRunnable() {
-                        private int r = 0;
-                        private int g = 0;
-                        private int b = 0;
+
+                        private final RGBIterator rgbFuntion = new RGBIterator();
 
                         @Override
                         public void run() {
-                            if (r == 255 || g == 255 || b == 255) {
-                                r = 0;
-                                g = 0;
-                                b = 0;
-                            }
-
-                            ItemStack itemNow = BukkitUtils.getItemStackFromString("301 : 1 : nome>&aBota de Couro : paint>" + r + ":" + g + ":" + b);
-                            r++;
-                            g++;
-                            b++;
-
+                            ItemStack itemNow = BukkitUtils.getItemStackFromString("301 : 1 : nome>&aBota de Couro : paint>" + rgbFuntion.next());
                             player.getInventory().setBoots(itemNow);
                         }
                     }.runTaskTimerAsynchronously(Main.getInstance(), 0L, 1L);

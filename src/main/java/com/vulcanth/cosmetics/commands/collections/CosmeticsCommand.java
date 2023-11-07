@@ -17,7 +17,8 @@ public class CosmeticsCommand extends CommandsAbstract {
         Player player = getPlayerSender(commandSender);
         Profile profile = Profile.loadProfile(player.getName());
         if (profile != null && profile.getGame() == null) {
-            new MenuCosmetics(profile).open();
+            //new MenuCosmetics(profile).open();
+            player.sendMessage("§cEm desenvolvimento");
         }
     }
 

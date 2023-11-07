@@ -52,7 +52,8 @@ public class MenuCloset extends PlayerCollectionUpdapleMenu {
             if (player == this.profile.getPlayer()) {
                 if (event.getCurrentItem() != null && !event.getCurrentItem().getType().equals(Material.AIR) && player.getOpenInventory().getTopInventory().equals(this.getInventory())) {
                     int slot = event.getSlot();
-
+                    ArmorPart part = (ArmorPart) this.getValueForItem(slot, this.getItemForSlot(slot));
+                    part.equip(player);
                     event.setCancelled(true);
                 }
             }
